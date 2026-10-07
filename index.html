@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uk">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>CupsMood — кружки с вашим фото и надписью</title>
+<title>CupsMood — чашки з вашим фото та написом</title>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#2a2c30;--bg2:#34363b;--ink:#f4f1ee;--mute:#b3b0ac;--or:#ff7a1a;--or2:#ffa14f;--on-or:#2a2c30;
@@ -39,6 +39,7 @@ input[type=text],input[type=tel],select,textarea{width:100%;background:#24262a;c
 section{padding:56px 0}
 h2{font-size:clamp(24px,3.5vw,36px);margin-bottom:28px}
 .steps,.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.prices{grid-template-columns:minmax(0,420px)}
 .card{background:var(--bg2);border-radius:20px;padding:24px}
 .card h3{font-size:19px;margin-bottom:8px}
 .card p{margin:0;color:var(--mute)}
@@ -57,19 +58,19 @@ footer{padding:36px 0;color:var(--mute);border-top:1px solid #45484e;font-size:1
 <div class="wrap">
 <header>
   <a class="logo" href="#top">Cups<b>Mood</b></a>
-  <nav><a href="#how">Как это работает</a><a href="#prices">Цены</a><a href="#order">Заказать</a></nav>
+  <nav><a href="#how">Як це працює</a><a href="#prices">Ціни</a><a href="#order">Замовити</a></nav>
 </header>
 
 <div class="hero" id="top">
   <div>
-    <h1>Кружка с вашим фото и надписью</h1>
-    <p>Соберите кружку под настроение: загрузите снимок, напишите текст и сразу посмотрите, как она выглядит. Печать не выцветает и переносит посудомойку.</p>
-    <p><a class="btn" href="#order">Заказать кружку</a></p>
+    <h1>Чашка з вашим фото та написом</h1>
+    <p>Зберіть чашку під настрій: завантажте знімок, напишіть текст і одразу подивіться, як вона виглядає. Друк не вицвітає та витримує посудомийну машину.</p>
+    <p><a class="btn" href="#order">Замовити чашку</a></p>
   </div>
 
   <div class="studio">
     <div class="stage">
-      <svg id="cup" viewBox="0 0 400 320" role="img" aria-label="Предпросмотр кружки">
+      <svg id="cup" viewBox="0 0 400 320" role="img" aria-label="Попередній перегляд чашки">
         <defs><clipPath id="clip"><rect x="70" y="60" width="200" height="190" rx="18"/></clipPath></defs>
         <ellipse cx="170" cy="282" rx="130" ry="14" fill="#000" opacity=".25"/>
         <path d="M268 105h28a38 38 0 0 1 0 76h-28" fill="none" id="handle" stroke="#fff" stroke-width="20" stroke-linecap="round"/>
@@ -77,16 +78,16 @@ footer{padding:36px 0;color:var(--mute);border-top:1px solid #45484e;font-size:1
         <g clip-path="url(#clip)">
           <image id="pic" x="70" y="60" width="200" height="190" preserveAspectRatio="xMidYMid slice" visibility="hidden"/>
           <rect x="70" y="60" width="200" height="190" fill="#000" opacity="0" id="shade"/>
-          <text id="txt" x="170" y="228" text-anchor="middle" font-family="Unbounded,Rubik,sans-serif" font-weight="700" font-size="22" fill="#2a2c30">Моё настроение</text>
+          <text id="txt" x="170" y="228" text-anchor="middle" font-family="Unbounded,Rubik,sans-serif" font-weight="700" font-size="22" fill="#2a2c30">Мій настрій</text>
         </g>
         <rect x="70" y="60" width="200" height="190" rx="18" fill="none" stroke="#000" stroke-opacity=".12"/>
       </svg>
     </div>
     <div class="ctl">
-      <div><label for="mode">Что печатаем</label>
-        <select id="mode"><option value="both">Фото и надпись</option><option value="photo">Только фото</option><option value="text">Только надпись</option></select></div>
-      <div id="wt"><label for="t">Надпись на кружке</label><input id="t" type="text" maxlength="24" value="Моё настроение"></div>
-      <div><label>Цвет кружки</label>
+      <div><label for="mode">Що друкуємо</label>
+        <select id="mode"><option value="both">Фото та напис</option><option value="photo">Лише фото</option><option value="text">Лише напис</option></select></div>
+      <div id="wt"><label for="t">Напис на чашці</label><input id="t" type="text" maxlength="24" value="Мій настрій"></div>
+      <div><label>Колір чашки</label>
         <div class="row" id="sws"></div></div>
       <div id="wf"><label for="f">Ваше фото</label><input id="f" class="file" type="file" accept="image/*"></div>
     </div>
@@ -95,46 +96,44 @@ footer{padding:36px 0;color:var(--mute);border-top:1px solid #45484e;font-size:1
 </div>
 
 <section id="how"><div class="wrap">
-  <h2>Три шага до кружки</h2>
+  <h2>Три кроки до чашки</h2>
   <div class="steps">
-    <div class="card"><span class="n">1</span><h3>Загрузите фото</h3><p>Семейный снимок, питомец, рисунок или логотип. Подойдёт любое чёткое изображение.</p></div>
-    <div class="card"><span class="n">2</span><h3>Добавьте надпись</h3><p>Имя, пожелание или шутка. Выберите цвет кружки, и мы подготовим макет.</p></div>
-    <div class="card"><span class="n">3</span><h3>Получите заказ</h3><p>Печатаем за 1–2 дня и отправляем по всей стране. Макет согласуем перед печатью.</p></div>
+    <div class="card"><span class="n">1</span><h3>Завантажте фото</h3><p>Сімейний знімок, улюбленець, малюнок або логотип. Підійде будь-яке чітке зображення.</p></div>
+    <div class="card"><span class="n">2</span><h3>Додайте напис</h3><p>Ім'я, побажання або жарт. Оберіть колір чашки, і ми підготуємо макет.</p></div>
+    <div class="card"><span class="n">3</span><h3>Отримайте замовлення</h3><p>Друкуємо за 1–2 дні та відправляємо по всій країні. Макет погоджуємо перед друком.</p></div>
   </div>
 </div></section>
 
 <section class="band"><div class="wrap">
-  <h2>Подарок, который берут в руки каждый день</h2>
-  <p>Скидка 15% на заказ от 5 кружек: для команды, семьи или свадьбы.</p>
+  <h2>Подарунок, який беруть до рук щодня</h2>
+  <p>Знижка 15% на замовлення від 5 чашок: для команди, родини чи весілля.</p>
 </div></section>
 
 <section id="prices"><div class="wrap">
-  <h2>Какие бывают кружки</h2>
+  <h2>Скільки коштує чашка</h2>
   <div class="prices">
-    <div class="card"><h3>Классическая</h3><p>Белая керамика, 330 мл. Лучше всего показывает фото.</p><p class="price">590 ₽</p></div>
-    <div class="card"><h3>Цветная внутри</h3><p>Яркая внутренняя часть и ручка по вашему выбору.</p><p class="price">690 ₽</p></div>
-    <div class="card"><h3>Хамелеон</h3><p>Чёрная кружка, при горячем напитке проявляет фото.</p><p class="price">790 ₽</p></div>
+    <div class="card"><h3>Класична</h3><p>Біла кераміка, 330 мл. Найкраще передає фото.</p><p class="price">450 ₴</p></div>
   </div>
 </div></section>
 
 <section id="order"><div class="wrap">
-  <h2>Оставить заявку</h2>
+  <h2>Залишити заявку</h2>
   <form id="form">
     <p id="sum" class="card" style="margin:0"></p>
-    <div><label for="nm">Имя</label><input id="nm" type="text" required></div>
-    <div><label for="ph">Телефон или Telegram</label><input id="ph" type="text" required></div>
-    <div><label for="ty">Тип кружки</label>
-      <select id="ty"><option>Классическая — 590 ₽</option><option>Цветная внутри — 690 ₽</option><option>Хамелеон — 790 ₽</option></select></div>
-    <div><label for="cm">Пожелания к макету</label><textarea id="cm" rows="3"></textarea></div>
-    <button class="btn" type="submit" id="send">Отправить заказ</button>
+    <div><label for="nm">Ім'я</label><input id="nm" type="text" required></div>
+    <div><label for="ph">Телефон або Telegram</label><input id="ph" type="text" required></div>
+    <div><label for="ty">Тип чашки</label>
+      <select id="ty"><option>Класична — 450 ₴</option></select></div>
+    <div><label for="cm">Побажання до макета</label><textarea id="cm" rows="3"></textarea></div>
+    <button class="btn" type="submit" id="send">Надіслати замовлення</button>
   </form>
   <p id="ok" role="status"></p>
 </div></section>
 
-<footer><div class="wrap">CupsMood — кружки с вашим настроением. </div></footer>
+<footer><div class="wrap">CupsMood — чашки з вашим настроєм. </div></footer>
 
 <script>
-const cols=[["Белая","#ffffff"],["Оранжевая","#ff7a1a"],["Графит","#3b3d42"],["Кремовая","#f1e3cc"]];
+const cols=[["Біла","#ffffff"],["Помаранчева","#ff7a1a"],["Графітова","#3b3d42"],["Кремова","#f1e3cc"]];
 const $=id=>document.getElementById(id);
 function lum(h){const n=parseInt(h.slice(1),16),r=n>>16,g=n>>8&255,b=n&255;return(.299*r+.587*g+.114*b)/255}
 function setColor(c){
@@ -162,8 +161,8 @@ function modeUpd(){
   $('wf').style.display=m==='text'?'none':'';
   if(m==='text'){$('f').value='';$('pic').setAttribute('visibility','hidden');$('shade').setAttribute('opacity',0);setColor(cur)}
   $('txt').style.display=m==='photo'?'none':'';
-  const names={both:'фото и надпись',photo:'только фото',text:'только надпись'};
-  $('sum').textContent='Ваш макет: '+names[m]+', кружка '+(cols.find(c=>c[1]===cur)||cols[0])[0].toLowerCase()+'. Измените его в конструкторе выше.';
+  const names={both:'фото та напис',photo:'лише фото',text:'лише напис'};
+  $('sum').textContent='Ваш макет: '+names[m]+', чашка '+(cols.find(c=>c[1]===cur)||cols[0])[0].toLowerCase()+'. Змініть його в конструкторі вище.';
 }
 $('mode').onchange=modeUpd;
 document.querySelectorAll('.sw').forEach(b=>b.addEventListener('click',modeUpd));
@@ -172,8 +171,8 @@ $('form').onsubmit=async e=>{
   e.preventDefault();
   const o=$('ok'),m=$('mode').value,file=$('f').files[0];
   o.style.display='block';
-  if(m!=='text'&&!file){o.textContent='Добавьте фото в конструкторе или выберите «Только надпись».';return}
-  if(m!=='photo'&&!$('t').value.trim()){o.textContent='Впишите надпись в конструкторе или выберите «Только фото».';return}
+  if(m!=='text'&&!file){o.textContent='Додайте фото в конструкторі або оберіть «Лише напис».';return}
+  if(m!=='photo'&&!$('t').value.trim()){o.textContent='Впишіть напис у конструкторі або оберіть «Лише фото».';return}
   const fd=new FormData();
   fd.append('mode',m);
   fd.append('text',m==='photo'?'':$('t').value.trim());
@@ -183,13 +182,13 @@ $('form').onsubmit=async e=>{
   fd.append('contact',$('ph').value);
   fd.append('comment',$('cm').value);
   if(m!=='text'&&file)fd.append('photo',file);
-  $('send').disabled=true;o.textContent='Отправляем...';
+  $('send').disabled=true;o.textContent='Надсилаємо...';
   try{
     const r=await fetch('/api/order',{method:'POST',body:fd});
     if(!r.ok)throw 0;
-    o.textContent='Спасибо, '+$('nm').value+'! Заказ отправлен, мы свяжемся с вами и согласуем макет.';
+    o.textContent='Дякуємо, '+$('nm').value+'! Замовлення надіслано, ми зв\'яжемося з вами та погодимо макет.';
     e.target.reset();
-  }catch(x){o.textContent='Не удалось отправить. Попробуйте ещё раз или напишите нам в Telegram: @CupsMood_bot';}
+  }catch(x){o.textContent='Не вдалося надіслати. Спробуйте ще раз або напишіть нам у Telegram: @CupsMood_bot';}
   $('send').disabled=false;
 };
 </script>
