@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>CupsMood — чашки з вашим фото та написом</title>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Rubik:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <a class="logo" href="#top">Cups<b>Mood</b></a>
+      <nav><a href="#how">Як це працює</a><a href="#prices">Ціни</a><a href="#order">Замовити</a></nav>
+    </header>
+
+    <div class="hero" id="top">
+      <div>
+        <h1>Чашка з вашим фото та написом</h1>
+        <p>Зберіть чашку під настрій: завантажте знімок, напишіть текст і одразу подивіться, як вона виглядає. Друк не
+          вицвітає та витримує посудомийну машину.</p>
+        <p><a class="btn" href="#order">Замовити чашку</a></p>
+      </div>
+
+      <div class="studio">
+        <div class="stage">
+          <svg id="cup" viewBox="0 0 400 320" role="img" aria-label="Попередній перегляд чашки">
+            <defs>
+              <clipPath id="clip">
+                <rect x="70" y="60" width="200" height="190" rx="18" />
+              </clipPath>
+            </defs>
+            <ellipse cx="170" cy="282" rx="130" ry="14" fill="#000" opacity=".25" />
+            <path d="M268 105h28a38 38 0 0 1 0 76h-28" fill="none" id="handle" stroke="#fff" stroke-width="20"
+              stroke-linecap="round" />
+            <rect id="body" x="70" y="60" width="200" height="190" rx="18" fill="#fff" />
+            <g clip-path="url(#clip)">
+              <image id="pic" x="70" y="60" width="200" height="190" preserveAspectRatio="xMidYMid slice"
+                visibility="hidden" />
+              <rect x="70" y="60" width="200" height="190" fill="#000" opacity="0" id="shade" />
+              <text id="txt" x="170" y="228" text-anchor="middle" font-family="Unbounded,Rubik,sans-serif"
+                font-weight="700" font-size="22" fill="#2a2c30">Мій настрій</text>
+            </g>
+            <rect x="70" y="60" width="200" height="190" rx="18" fill="none" stroke="#000" stroke-opacity=".12" />
+          </svg>
+        </div>
+        <div class="ctl">
+          <div><label for="mode">Що друкуємо</label>
+            <select id="mode">
+              <option value="both">Фото та напис</option>
+              <option value="photo">Лише фото</option>
+              <option value="text">Лише напис</option>
+            </select>
+          </div>
+          <div id="wt"><label for="t">Напис на чашці</label><input id="t" type="text" maxlength="24"
+              value="Мій настрій"></div>
+          <div><label>Колір чашки</label>
+            <div class="row" id="sws"></div>
+          </div>
+          <div id="wf"><label for="f">Ваше фото</label><input id="f" class="file" type="file" accept="image/*"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="how">
+    <div class="wrap">
+      <h2>Три кроки до чашки</h2>
+      <div class="steps">
+        <div class="card"><span class="n">1</span>
+          <h3>Завантажте фото</h3>
+          <p>Сімейний знімок, улюбленець, малюнок або логотип. Підійде будь-яке чітке зображення.</p>
+        </div>
+        <div class="card"><span class="n">2</span>
+          <h3>Додайте напис</h3>
+          <p>Ім'я, побажання або жарт. Оберіть колір чашки, і ми підготуємо макет.</p>
+        </div>
+        <div class="card"><span class="n">3</span>
+          <h3>Отримайте замовлення</h3>
+          <p>Друкуємо за 1–3 дні та відправляємо по всій країні. Макет погоджуємо перед друком.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2>Подарунок, який беруть до рук щодня</h2>
+      <p>Знижка 15% на замовлення від 5 чашок: для команди, родини чи весілля.</p>
+    </div>
+  </section>
+
+  <section id="prices">
+    <div class="wrap">
+      <h2>Скільки коштує чашка</h2>
+      <div class="prices">
+        <div class="card">
+          <h3>Класична</h3>
+          <p>Біла кераміка, 330 мл. Найкраще передає фото.</p>
+          <p class="price">350 ₴</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="order">
+    <div class="wrap">
+      <h2>Залишити заявку</h2>
+      <form id="form">
+        <p id="sum" class="card" style="margin:0"></p>
+        <div><label for="nm">Ім'я, призвище</label><input id="nm" type="text" required></div>
+        <div><label for="ph">Телефон</label><input id="ph" type="text" required></div>
+        <div><label for="ty">Тип чашки</label>
+          <select id="ty">
+            <option>Класична — 350 ₴</option>
+          </select>
+        </div>
+        <div><label for="cm">місто, номер відділення/поштомат </label><textarea id="cm" rows="3"></textarea></div>
+        <button class="btn" type="submit" id="send">Надіслати замовлення</button>
+      </form>
+      <p id="ok" role="status"></p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">CupsMood — чашки з вашим настроєм. </div>
+  </footer>
+
+  <script src="assets/main.js"></script>
+</body>
+
+</html>
