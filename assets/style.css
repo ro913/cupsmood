@@ -1,0 +1,284 @@
+:root {
+    --bg: #2a2c30;
+    --bg2: #34363b;
+    --ink: #f4f1ee;
+    --mute: #b3b0ac;
+    --or: #ff7a1a;
+    --or2: #ffa14f;
+    --on-or: #2a2c30;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px)
+}
+
+:root:not([data-theme="dark"]) {
+    color-scheme: dark
+}
+
+html {
+    scroll-padding-top: env(safe-area-inset-top, 0px);
+    scroll-behavior: smooth
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 400 17px/1.55 Rubik, system-ui, sans-serif
+}
+
+h1,
+h2,
+h3 {
+    font-family: Unbounded, Rubik, system-ui, sans-serif;
+    line-height: 1.15;
+    margin: 0
+}
+
+a {
+    color: inherit
+}
+
+:focus-visible {
+    outline: 3px solid var(--or);
+    outline-offset: 3px
+}
+
+.wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 20px
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0
+}
+
+.logo {
+    font: 700 22px Unbounded, sans-serif;
+    text-decoration: none
+}
+
+.logo b {
+    color: var(--or)
+}
+
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: var(--mute)
+}
+
+nav a:hover {
+    color: var(--or)
+}
+
+.btn {
+    display: inline-block;
+    background: var(--or);
+    color: var(--on-or);
+    border: 0;
+    border-radius: 999px;
+    padding: 14px 28px;
+    font: 500 17px Rubik, sans-serif;
+    cursor: pointer;
+    text-decoration: none
+}
+
+.btn:hover {
+    background: var(--or2)
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 36px;
+    align-items: center;
+    padding: 28px 0 64px
+}
+
+.hero h1 {
+    font-size: clamp(30px, 5vw, 52px)
+}
+
+.hero p {
+    color: var(--mute);
+    max-width: 46ch
+}
+
+.studio {
+    background: var(--bg2);
+    border-radius: 28px;
+    padding: 20px;
+    border: 2px solid var(--or)
+}
+
+.stage {
+    background: #24262a;
+    border-radius: 18px;
+    padding: 10px
+}
+
+.stage svg {
+    display: block;
+    width: 100%;
+    height: auto
+}
+
+.ctl {
+    display: grid;
+    gap: 12px;
+    margin-top: 16px
+}
+
+label {
+    font-size: 14px;
+    color: var(--mute);
+    display: block;
+    margin-bottom: 4px
+}
+
+input[type=text],
+input[type=tel],
+select,
+textarea {
+    width: 100%;
+    background: #24262a;
+    color: var(--ink);
+    border: 1px solid #55585e;
+    border-radius: 12px;
+    padding: 12px 14px;
+    font: inherit
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap
+}
+
+.sw {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    cursor: pointer;
+    padding: 0
+}
+
+.sw[aria-pressed=true] {
+    border-color: var(--or);
+    box-shadow: 0 0 0 2px var(--bg2) inset
+}
+
+.file {
+    font-size: 15px;
+    color: var(--mute)
+}
+
+section {
+    padding: 56px 0
+}
+
+h2 {
+    font-size: clamp(24px, 3.5vw, 36px);
+    margin-bottom: 28px
+}
+
+.steps,
+.prices {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px
+}
+
+.prices {
+    grid-template-columns: minmax(0, 420px)
+}
+
+.card {
+    background: var(--bg2);
+    border-radius: 20px;
+    padding: 24px
+}
+
+.card h3 {
+    font-size: 19px;
+    margin-bottom: 8px
+}
+
+.card p {
+    margin: 0;
+    color: var(--mute)
+}
+
+.n {
+    font: 700 34px Unbounded, sans-serif;
+    color: var(--or);
+    display: block;
+    margin-bottom: 6px
+}
+
+.price {
+    font: 700 28px Unbounded, sans-serif;
+    color: var(--or);
+    margin: 10px 0 0
+}
+
+.band {
+    background: var(--or);
+    color: var(--on-or)
+}
+
+.band h2 {
+    margin: 0 0 8px
+}
+
+.band p {
+    margin: 0;
+    font-size: 19px
+}
+
+form {
+    max-width: 560px;
+    display: grid;
+    gap: 14px
+}
+
+#ok {
+    display: none;
+    background: var(--bg2);
+    border-left: 4px solid var(--or);
+    padding: 14px 18px;
+    border-radius: 12px;
+    max-width: 560px
+}
+
+footer {
+    padding: 36px 0;
+    color: var(--mute);
+    border-top: 1px solid #45484e;
+    font-size: 15px
+}
+
+@media(max-width:800px) {
+
+    .hero,
+    .steps,
+    .prices {
+        grid-template-columns: 1fr
+    }
+
+    nav a {
+        margin-left: 12px;
+        font-size: 15px
+    }
+}
